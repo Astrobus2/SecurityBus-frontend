@@ -1,0 +1,11 @@
+<template>
+  <RouterView />
+</template>
+
+<style>
+#app {
+  display: block;
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+</style>

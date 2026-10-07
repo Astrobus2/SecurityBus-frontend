@@ -1,0 +1,176 @@
+
+:root {
+  --sb-bg:          #0a0a0a;
+  --sb-bg-card:     #111111;
+  --sb-bg-card2:    #1a1a1a;
+  --sb-border:      #1e1e1e;
+  --sb-border2:     #2a2a2a;
+  --sb-accent:      #b5f000;
+  --sb-accent-dim:  #8ab800;
+  --sb-red:         #e8002a;
+  --sb-white:       #f0f0f0;
+  --sb-gray:        #888888;
+  --sb-gray2:       #555555;
+  --sb-sidebar-w:   180px;
+  --sb-toolbar-h:   56px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--sb-bg);
+  color: var(--sb-white);
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--sb-bg); }
+::-webkit-scrollbar-thumb { background: var(--sb-border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sb-accent); }
+
+/* shared utility classes */
+.sb-mono { font-family: 'Share Tech Mono', monospace; }
+.sb-condensed { font-family: 'Barlow Condensed', sans-serif; }
+.sb-accent { color: var(--sb-accent); }
+.sb-red    { color: var(--sb-red); }
+.sb-gray   { color: var(--sb-gray); }
+
+.sb-btn-primary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--sb-accent);
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.sb-btn-primary:hover { background: #ceff00; transform: translateY(-1px); }
+
+.sb-btn-outline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--sb-white);
+  border: 1px solid var(--sb-border2);
+  padding: 12px 24px;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.sb-btn-outline:hover { border-color: var(--sb-accent); color: var(--sb-accent); }
+
+.sb-card {
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border);
+  padding: 24px;
+}
+
+.sb-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sb-gray);
+}
+
+.sb-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--sb-accent);
+  line-height: 1;
+}
+
+/* overlay / modal backdrop */
+.sb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sb-overlay-red  { background: #e8002a; }
+.sb-overlay-green { background: #00e676; }
+
+.sb-modal {
+  background: var(--sb-bg-card);
+  border: 1px solid var(--sb-border2);
+  padding: 40px 32px;
+  width: 360px;
+  text-align: center;
+  position: relative;
+  z-index: 201;
+}
+
+
+.leaflet-host { width: 100%; height: 100%; }
+.bus-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #c8ff00;
+  border: 2px solid #0a0a0a;
+  box-shadow: 0 0 6px currentColor;
+}
+
+
+/* ---- Iconos y campos de texto ---- */
+.material-icons.app-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+input[type='checkbox'] { accent-color: var(--sb-accent); }
+
+/* campo de texto oscuro */
+.sb-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--sb-bg-card2);
+  border: 1px solid var(--sb-border2);
+  padding: 0 14px;
+  height: 56px;
+  transition: border-color 0.15s;
+}
+.sb-field:focus-within { border-color: var(--sb-accent); }
+.sb-field .app-icon { color: var(--sb-gray); }
+.sb-field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--sb-white);
+  font: inherit;
+  font-size: 15px;
+}
+.sb-field input::placeholder { color: var(--sb-gray); }
